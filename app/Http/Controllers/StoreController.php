@@ -39,6 +39,7 @@ class StoreController extends Controller
             'Store'=>$stores,
             'storeid'=>$stores1
         ];
+        // dd($LoggedAdmin);
         return view('store.admin.mystore',$data);
     }
 

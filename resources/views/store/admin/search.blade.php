@@ -3,10 +3,10 @@
 @section('content')
 <?php
     $row=0;
-    $products = DB::table('products')
-    ->leftjoin('gallery', 'products.product_id', '=', 'gallery.product_id')
-    ->where('products.store_id',$Store->id)
-    ->get();
+    // $products = DB::table('products')
+    // ->leftjoin('gallery', 'products.product_id', '=', 'gallery.product_id')
+    // ->where('products.store_id',$Store->id)
+    // ->get();
 // dd($products);
 
 ?>

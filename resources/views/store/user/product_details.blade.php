@@ -12,7 +12,7 @@
 ?> 
 
 @extends('layouts.layoutuser')
-@section('title',",$Product_id index")
+@section('title',"$products->title ")
 @section('content1')
 
 

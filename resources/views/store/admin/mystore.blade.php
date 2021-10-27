@@ -15,9 +15,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            @if(session()->has('LoggedAdmin'))
-                            <td>{{$LoggedAdminInfo->last_name}}</td>
-                            <td>{{$LoggedAdminInfo->first_name}}</td>
+                            @if(isset($LoggedAdminInfo))
+                            <td>{{$LoggedAdminInfo->first_name}} {{$LoggedAdminInfo->last_name}}</td>
                             <td>{{$LoggedAdminInfo->email}}</td>
                             <td><a href="admin_logout">Logout</a></td>
                             @endif

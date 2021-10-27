@@ -171,6 +171,7 @@ class ProductController extends Controller
         $search_text=$_GET['query'];
         $products = DB::table('products')
             ->leftjoin('gallery', 'products.product_id', '=', 'gallery.product_id')
+            ->where('products.store_id',$stores->id)
             ->where('title','LIKE',$search_text.'%')->get();
         $data =[
             'LoggedAdminInfo'=>$admin,

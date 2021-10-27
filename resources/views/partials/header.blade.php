@@ -48,7 +48,7 @@ use App\Models\Admin;
                     @if(isset ($store_name))
                       {{$store_name}}
                     @else
-                    All Store
+                      Store
                     @endif
                       
                     </a>
@@ -92,7 +92,7 @@ use App\Models\Admin;
                   </div>
                 </li>
                 @else
-                <a class="nav-link px-3" href="admin_login">Login</a>
+                <a class="nav-link px-3" href="/admin_login">Login</a>
                 @endif
               
             </li>

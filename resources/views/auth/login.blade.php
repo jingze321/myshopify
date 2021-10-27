@@ -41,7 +41,7 @@
                 </div>
                 <br>
                 <div class="d-flex">
-                    <div class="mr-auto p-2"><a href="register"> Create an New Account</a></div>
+                    <div class="mr-auto p-2"><a href="register"> Create a New Account</a></div>
                     <div class="p-2"><a href="admin_login"> <p>Admin Login</p></a></div>
                 </div>
             </form>
