@@ -2,10 +2,18 @@
 @section('title',"Edit Profile")
 
 @section('content1')
-
-<div class="container" style="margin-top:45px">
+<br>
+<div class="d-flex container " style="margin-top:45px">
+        <div class="row " >
+            <div class="col-md-auto" >
+                    <a class="btn btn-dark" href="/index"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <h3 class="d-inline-block mt-4" style="margin-left:2rem">Edit User Profile</h3>
+            </div>
+        </div>
+</div>
+<div class="container" >
         <div class="row" >
-            <h4>Edit</h4>
+            
             <hr>
             <div class="results">
                     @if(Session::get('success'))

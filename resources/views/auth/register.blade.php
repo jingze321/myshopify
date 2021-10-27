@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <title>Register</title>
 </head>
 <body>
@@ -37,19 +37,22 @@
                     <input type="password" class="form-control" name="password" placeholder="Enter Email"></input>
                     <span class="text danger"> @error('password') {{$message}} @enderror </span>
                 </div>
-                <div class="form-group">
-                    <label for="firstname"> First Name </label>
-                    <input type="text" class="form-control" name="firstname" placeholder="First Name"></input>
-                    <span class="text danger"> @error('firstname') {{$message}} @enderror </span>
-                </div>
-                <div class="form-group">
-                    <label for="lastname"> Last Name </label>
-                    <input type="text" class="form-control" name="lastname" placeholder="Last Name"></input>
-                    <span class="text danger"> @error('lastname') {{$message}} @enderror </span>
-                </div>
 
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="firstname"> First Name </label>
+                        <input type="text" class="form-control" name="firstname" placeholder="First Name"></input>
+                        <span class="text danger"> @error('firstname') {{$message}} @enderror </span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastname"> Last Name </label>
+                        <input type="text" class="form-control" name="lastname" placeholder="Last Name"></input>
+                        <span class="text danger"> @error('lastname') {{$message}} @enderror </span>
+                    </div>
+                </div>
+                <br>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block btn-primary">Login</button>
+                    <button type="submit" class="btn btn-block btn-primary">Register</button>
                 </div>
                 <br>
                 <a href="login"> Already have an account</a>

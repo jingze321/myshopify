@@ -2,13 +2,11 @@
 @section('title',"$Store->store_name Main Page")
 @section('content')
 <?php
-    if(!isset($products)){
-        $products = DB::table('products')
-        ->leftjoin('gallery', 'products.product_id', '=', 'gallery.product_id')
-        ->where('products.store_id',$Store->id)
-        ->get();
-    }
-
+    $row=0;
+    $products = DB::table('products')
+    ->leftjoin('gallery', 'products.product_id', '=', 'gallery.product_id')
+    ->where('products.store_id',$Store->id)
+    ->get();
 // dd($products);
 
 ?>
@@ -72,7 +70,7 @@
                             @foreach($products as $product)
  
                                 <div class="card col-lg-3 mb-2">
-                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <div align=center class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
                                         src="/uploads/images/{{$product->picture}}"
                                         class="img-fluid"

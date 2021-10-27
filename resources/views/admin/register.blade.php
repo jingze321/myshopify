@@ -107,6 +107,19 @@
                     <input type="text" class="form-control" name="storename" max=20 placeholder="Storename"></input>
                     <span class="text danger"> @error('storename') {{$message}} @enderror </span>
                 </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="firstname"> Company Name </label>
+                        <input type="text" class="form-control" name="companyname" placeholder="Company Name"></input>
+                        <span class="text danger"> @error('companyname') {{$message}} @enderror </span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastname"> Store Industry </label>
+                        <input type="text" class="form-control" name="storeindustry" placeholder="Store Type"></input>
+                        <span class="text danger"> @error('storeindustry') {{$message}} @enderror </span>
+                    </div>
+                </div>
+                <br>
                 <div class="form-group">
                     <button type="submit" class="btn btn-block btn-primary">Register</button>
                 </div>

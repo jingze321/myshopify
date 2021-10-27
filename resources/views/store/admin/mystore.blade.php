@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 @section('title',"$Store->store_name Main Page")
 @section('content')
-
     <div class="container">
         
         <div class="row" style="margin-top:45px">
         
             <div class="col-md-6 col-md-offset">
-
+            
+            <h1> {{$Store->store_name}}</h1>
                 <table class="table table-hover">
                     <thead>
                         <th>Name</th>
@@ -29,7 +29,6 @@
                     <!-- @foreach($Store as $store)
                         {{$store}}
                     @endforeach -->
-                    {{$Store->store_name}}
                     
                 </div>
             </div>

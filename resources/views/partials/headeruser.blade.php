@@ -100,7 +100,7 @@ use App\Models\User;
                   </div>
                 </li>
                 @else
-                <a class="nav-link px-3" href="admin_login">Login</a>
+                <a class="nav-link px-3" href="login">Login</a>
                 @endif
               
             </li>

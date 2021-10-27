@@ -22,23 +22,15 @@
 			box-shadow: 0px 2px 20px 0px #f2f2f2;
 			border-radius: 10px;
 		}
-</style>
+
+		/* textarea {
+			resize: none;
+		} */
+    </style>
 
 
 
-
-
-    <div class="d-flex container">
-        <div class="row " style="margin-top:50px">
-            <div class="col-md-auto" >
-                    <a class="btn btn-dark" href="/mystore/products/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                    <h5 class="d-inline-block mt-4" style="margin-left:2rem">Add Product</h5>
-            </div>
-        </div>
-    </div>
-    
-    <form action="{{ route('product.data',[$Store->store_name]) }}"name="demoform" id="demoform" method="post"  enctype="multipart/form-data">
-    @csrf
+<section class="bg-light mt-5">
         <div class="results">
                     @if(Session::get('success'))
                         <div class="alert alert-success">
@@ -51,46 +43,62 @@
                         </div>
                     @endif
         </div>
-    <div class="container ">
-        <div class="row  justify-content-end" style="margin:2rem">
-
-        <!-- row1 -->
-            <!-- column 1 -->
-            <div class="col-md-7 rounded bg-warning p-2" >
-                <div class="col-md-11  m-auto " >
-
-                        <input type="text" class="form-control col-6" id="store_id" name="store_id" value="{{$Store->id}}" style="display:none"></input>
-
-
-                    <div class="form-group" >
-                        <label for="title"> Title </label>
-                        <input type="text" class="form-control col-6" name="title" placeholder="Enter Title"></input>
-                        <span class="text danger"> @error('title') {{$message}} @enderror </span>
-                    </div>
-                    <div class="form-group" >
-                        <label for="description"> Description </label>
-                        
-                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
-                        
-                        <span class="text danger"> @error('description') {{$message}} @enderror </span>
-                    </div>
-                </div>
-                <!-- column 2 -->
-                <div class="col-md-12 rounded bg-warning p-2" >
-                    <div class="col-md-11  m-auto " >
+	<div class="d-flex container">
+        <div class="row " >
+            <div class="col-md-auto" >
+                    <a class="btn btn-dark" href="/mystore/products/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <h5 class="d-inline-block mt-4" style="margin-left:2rem">Add Product</h5>
+            </div>
+        </div>
+    </div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2">
+				<div class="form-wrapper py-5">
+					<!-- form starts -->
+					<form action="{{ route('product.data',[$Store->store_name]) }}" name="demoform" id="demoform" method="POST" class="dropzone" enctype="multipart/form-data">
+						
+						@csrf 
+						<div class="form-group">
+                            <input  type="hidden" class="store_id" name="store_id" id="store_id"  value="{{$Store->id}}">
+							
+                            <input  type="hidden" class="product_id" name="product_id" id="product_id" value="">
+							
+							<label for="name">Name</label>
+							<input type="text" name="title" id="title" placeholder="Enter Product Name" class="form-control" required autocomplete="off">
+						</div>
                         <div class="form-group">
-                        <label for="media"> Media </label>
+							<label for="picture">Description</label>
+							<textarea  type="text" name="description" id="description" rows="4" class="form-control" required autocomplete="off"></textarea>
+							
+						</div>
 
-                                <div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
-                                    <span>Upload file</span>
-                                    <div class="dropzone-previews"></div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- column 3 -->
-                <div class="col-md-11  m-auto  ">
-                    <div class="form-group" >
+						<div class="form-group pt-3">
+							<label for="picture">Media</label>
+
+                  			<div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
+                  				<span>Upload file</span>
+                                <div class="dropzone-previews"></div>
+                  			</div>
+                  			
+                  		</div>
+						  <div class="form-group row">
+							<div class="col-sm-6">
+								<label for="status"> Product Status </label>
+								<select id="status" name="status" class="form-select" aria-label="Default select example">
+									<option value="active" selected>Active</option>
+									<option value="draft">Draft</option>
+
+								</select>
+							</div>
+							<div class="col-sm-6">
+								<label for="price">Price</label>
+								<input type="text" name="price" id="price" placeholder="Enter Price" class="form-control" required autocomplete="off">
+							</div>
+						</div>
+						<div class="form-group pt-3">
+						<div class="form-group" >
                         <div class="alert alert-danger show-error-message" style="display:none">
                             <ul></ul>
                         </div>
@@ -114,37 +122,99 @@
                             </tr>  
                         </table> 
                     </div>
-                </div>
-
-                <div align="end">
-                    <button id="submit-all" type="submit" class="btn btn-block btn-primary">Add Product</button>
-                </div>
-
-            </div>
-
+                  			
+                  		</div>
+                  		<div class="form-group">
+	        				<button type="submit" class="btn btn-md btn-primary">create</button>
+	        			</div>
+					</form>
+					<!-- form end -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
             
-
-        <!-- row2 -->
-            <div class="col-md-4 p-1 ">
-                <div class="col-md-12 rounded m-auto bg-success " >
-                    <label for="status"> Product Status </label>
-                    <select id="status" name="status" class="form-select" aria-label="Default select example">
-                        <option value="active" selected>Active</option>
-                        <option value="draft">Draft</option>
-
-                    </select>
-                    <span class="text danger"> @error('email') {{$message}} @enderror </span>
-                </div> 
-            </div>
-            
-    </div>
-    </form>
-
-
-
 
 <script src="{{ URL::asset('js/variant.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('js/dropzone.js') }}" type="text/javascript"></script>
+        
+<!-- <script src="{{ URL::asset('js/dropzone.js') }}" type="text/javascript"></script> -->
+<script>
+Dropzone.autoDiscover = false;
+// Dropzone.options.demoform = false;	
+// alert($("#demoform").attr('action'));
+var fileList = new Array;
+var i = 0;
+let token = $('meta[name="csrf-token"]').attr('content');
+$(function() {
+var myDropzone = new Dropzone("div#dropzoneDragArea", { 
+	paramName: "file",
+	url: "{{ url('/mystore/products/storeimgae') }}",
+	previewsContainer: 'div.dropzone-previews',
+	addRemoveLinks: true,
+	autoProcessQueue: false,
+	uploadMultiple: false,
+	parallelUploads: 1,
+	maxFiles: 1,
+	params: {
+        _token: token
+    },
+	 // The setting up of the dropzone
+	init: function() {
+	    var myDropzone = this;
+	    //form submission code goes here
+	    $("form[name='demoform']").submit(function(event) {
+	    	//Make sure that the form isn't actully being sent.
+	    	event.preventDefault();
+	    	URL = $("#demoform").attr('action');
+            ///mystore/products/storedata
+	    	formData = $('#demoform').serialize();
+	    	$.ajax({
+	    		type: 'POST',
+	    		url: URL,
+	    		data: formData,
+                
+	    		success: function(result){
+                    // alert(result)
+	    			if(result.status == "success"){
+	    				// fetch the useid 
+	    				var product_id = result.product_id;
+                        // alert('successful='+product_id);
+						$("#product_id").val(product_id); 
+	    				//process the queue
+                        // alert('successful='+product_id);
+
+	    				myDropzone.processQueue();
+	    			}else{
+	    				console.log("error");
+	    			}
+                    
+	    		},
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                }      
+ 
+	    	});
+	    });
+	    //Gets triggered when we submit the image.
+	    this.on('sending', function(file, xhr, formData){
+        let product_id = document.getElementById('product_id').value;
+		   formData.append('product_id', product_id);
+        //    alert(product_id);
+
+		});
+		
+	    this.on("success", function (file, response) {
+
+            $('#demoform')[0].reset();
+            $('.dropzone-previews').empty();
+        });
+
+	}
+	});
+});
+</script>
+
 
 
 

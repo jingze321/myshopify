@@ -53,7 +53,7 @@
                                 <td>{{$Store->store_industry}}</td>
                                 <td>{{$Store->country}}</td>
                                 <td>
-                                    <a href="//{{$Store->store_name}}.localhost:8000/mystore" class="btn btn-primary">Visit</a>
+                                    <a href="//{{$Store->store_name}}.localhost:8000/index" class="btn btn-primary">Visit</a>
                                 </td>
                             </tr>
                         @endforeach

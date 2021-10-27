@@ -66,19 +66,15 @@
                     <div class="ratings d-flex flex-row align-items-center">
                         <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bx-star'></i> </div> <span>441 reviews</span>
                     </div>
-                    <div class="mt-5"> <span class="fw-bold">Color</span>
-                        <div class="colors">
-                            <ul id="marker">
-                                <li id="marker-1"></li>
-                                <li id="marker-2"></li>
-                                <li id="marker-3"></li>
-                                <li id="marker-4"></li>
-                                <li id="marker-5"></li>
-                            </ul>
+                    <div class="mt-5"> <span class="fw-bold">Variant</span>
+                        <div >
+                                none
                         </div>
                     </div>
-                    <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy Now</button> 
-                    <a type="button" class="btn btn-dark cart_button_checkout text-decoration-none" href="/cart/add/{{$products->product_id}}">Add to cart</a> </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3"> 
+                        <!-- <button class="btn btn-outline-dark">Buy Now</button>  -->
+                        <a  class="btn btn-dark  text-decoration-none" href="/cart/add/{{$products->product_id}}">Add to cart</a> 
+                    </div>
                     
 
                 </div>

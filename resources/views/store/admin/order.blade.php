@@ -8,6 +8,7 @@
   // ->join('order_items', 'order_items.order_id', '=', 'orders.id')
   ->select('orders.*','orders.id as order_id','orders.created_at as order_created_at','users.*')
   ->join('users','users.id','orders.user_id')
+  ->where('orders.store_id',$Store->id)
   ->get();
 // dd($orders)
 ?>

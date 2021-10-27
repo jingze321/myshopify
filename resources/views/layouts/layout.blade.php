@@ -15,6 +15,8 @@
 
 </style>
 <header >
+      session_start();
+
        @include('partials.header')
 </header>
 <div class="container-fluid">

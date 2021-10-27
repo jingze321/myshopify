@@ -60,7 +60,7 @@ class StoreController extends Controller
             'LoggedAdminInfo'=>$admin,
             'Store'=>$stores
         ];
-        return view('store.admin.add_product1',$data);
+        return view('store.admin.add_product',$data);
     }
 
         public function create (Request $request){
@@ -143,7 +143,7 @@ class StoreController extends Controller
             if (!$carts){
                 $cart_id =DB::table('carts')->insertGetId([
 
-                     'user_id' => $user->id ,
+                    'user_id' => $user->id ,
                     'store_id' =>$stores->id,
                 ]);
                 DB::table('cart_details')->insert([ 
@@ -206,6 +206,7 @@ class StoreController extends Controller
             }
             $order = new Order();
             $order->user_id = $user->id;
+            $order->store_id = $store->id;
             $order->amount = $totalAmount;
             $order->save();
             // $data = [];

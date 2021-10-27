@@ -35,6 +35,8 @@ class AdminAuthController extends Controller
             'country'=>'required',
             'phone'=>'required',   
             'storename'=>'required|unique:stores,store_name',
+            'companyname'=>'required',
+            'storeindustry'=>'required'
         ]);
         //if form validated successfully,then  register new user
 
@@ -57,8 +59,8 @@ class AdminAuthController extends Controller
                 $query1 = DB::table('stores')
                 ->insert([
                     'store_name' => $request->storename,
-                    'company_name'=> $request->firstname,
-                    'store_industry' => $request->lastname,
+                    'company_name'=> $request->companyname,
+                    'store_industry' => $request->storeindustry,
                     'admin_id' => $query,
                     'store_address' => $request->address,
                     'postcode' => $request->postcode,
@@ -94,6 +96,7 @@ class AdminAuthController extends Controller
         if($admin){
             if(Hash::check($request->password,$admin->password)){
                 $request->session()->put('LoggedAdmin',$admin->id);
+                session_set_cookie_params(0, '/', '.localhost:8000');
                 return redirect('admin_profile');
             }else{
                 return back()->with('fail','Invalid Password');

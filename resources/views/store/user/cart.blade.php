@@ -9,6 +9,7 @@
     ->join('users', 'carts.user_id', '=', 'users.id')
     ->join('cart_details', 'cart_details.cart_id', '=', 'carts.cart_id')
     ->join('products', 'cart_details.product_id', '=', 'products.product_id')
+    ->join('gallery', 'gallery.product_id', '=', 'products.product_id')
     ->Where ('users.id',$LoggedUserInfo->id)
     ->Where ('products.store_id',$Store->id)
     ->get();
@@ -34,7 +35,7 @@
                         <ul class="cart_list">
                         @foreach ($carts as $cart)
                             <li class="cart_item clearfix">
-                                <div class="cart_item_image"><img src="https://i.imgur.com/qqBRWD5.jpg" alt=""></div>
+                                <div class="cart_item_image"><img src="uploads/images/{{$cart->picture}}" alt="" height="150px"></div>
                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div class="cart_item_name cart_info_col">
                                         <div class="cart_item_title">Name</div>
@@ -73,7 +74,7 @@
                                         @endphp
                                     </div>
                                 </div>
-                                <a href="/cart/destroy/{{$cart->cart_id}}">Delete</a>
+                                <a  href="/cart/destroy/{{$cart->cart_id}}">Delete</a>
                             </li>
                         @endforeach
                         </ul>

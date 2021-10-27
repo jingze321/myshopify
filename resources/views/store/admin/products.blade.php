@@ -70,7 +70,7 @@
                             @foreach($products as $product)
  
                                 <div class="card col-lg-3 mb-2">
-                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <div align=center class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
                                         src="/uploads/images/{{$product->picture}}"
                                         class="img-fluid"
